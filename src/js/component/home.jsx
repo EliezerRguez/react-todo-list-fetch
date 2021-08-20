@@ -3,12 +3,11 @@ import TaskList from "./taskList.jsx";
 
 //create your first component
 const Home = () => {
-	const [list, setList] = useState([""]);
-
+	const [list, setList] = useState([]);
 	return (
 		<div className="container-fluid bg-light">
 			<h1 className="text-center">todos</h1>
-			<TaskList list={list} setlist={setList} />
+			<TaskList list={list} setList={setList} />
 		</div>
 	);
 };

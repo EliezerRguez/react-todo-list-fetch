@@ -2,29 +2,20 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 //create your first component
-const TaskListElement = ({ newTask }) => {
-	const [icon, setIcon] = useState("d-none");
-
-	function listHover() {
-		setIcon("d-block");
-	}
-
-	function remove(event) {
-		let element = event.target.parentNode.parentNode.parentNode.parentNode;
-		element.parentNode.removeChild(element);
+const TaskListElement = ({ task, deleteTask }) => {
+	function deleteTaskClicked() {
+		deleteTask(task);
 	}
 
 	return (
-		<div
-			className="border-bottom border-light text-white p-3"
-			onMouseOver={listHover}>
+		<div className="text-light p-3">
 			<div className="row">
 				<div className="col-10">
-					<span>Hacer la cama</span>
+					<span>{task}</span>
 				</div>
-				<div className={`col-2 text-center + ${icon}`}>
-					<span onClick={remove}>
-						<i className="fas fa-trash-alt"></i>
+				<div className="col-2 text-end">
+					<span onClick={deleteTaskClicked}>
+						<i className="far fa-trash-alt"></i>
 					</span>
 				</div>
 			</div>
@@ -33,7 +24,8 @@ const TaskListElement = ({ newTask }) => {
 };
 
 TaskListElement.propTypes = {
-	newTask: PropTypes.string
+	task: PropTypes.string,
+	deleteTask: PropTypes.func
 };
 
 export default TaskListElement;

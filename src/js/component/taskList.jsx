@@ -6,6 +6,26 @@ import TaskListElement from "./taskListElement.jsx";
 const TaskList = ({ list, setList }) => {
 	const [newTask, setNewTask] = useState("");
 
+	const changeValue = event => {
+		setNewTask(event.target.value);
+	};
+
+	const pressEnter = event => {
+		if (event.keyCode == 13) {
+			let position = list.findIndex(task => task === newTask);
+			if (position === -1) {
+				setList([...list, newTask]);
+				setNewTask("");
+			}
+		}
+	};
+	const elementsNumber = list.length;
+	const elementsNumberText = list.length !== 1 ? "tasks left" : "task left";
+
+	function deleteTask(taskToRemove) {
+		setList(list.filter(task => task !== taskToRemove));
+	}
+
 	return (
 		<div className="container bg-dark w-25 border-bottom border-light p-0">
 			<input
@@ -13,15 +33,19 @@ const TaskList = ({ list, setList }) => {
 				placeholder="What needs to be done?"
 				className="w-100 p-3 bg-transparent border-0 text-light"
 				id="newTask"
-				onChange={event => {
-					setNewTask(event.target.value);
-				}}
-				onKeyPress={event => {
-					if (event.keycode === 13) setList([...list, newTask]);
-				}}></input>
+				value={newTask}
+				onChange={changeValue}
+				onKeyDown={pressEnter}></input>
 			{list.map(listTask => (
-				<TaskListElement key={listTask} newTask={newTask} />
+				<TaskListElement
+					key={listTask}
+					task={listTask}
+					deleteTask={deleteTask}
+				/>
 			))}
+			<div className="text-light p-3">
+				{elementsNumber} {elementsNumberText}
+			</div>
 		</div>
 	);
 };
