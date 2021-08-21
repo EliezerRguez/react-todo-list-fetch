@@ -2,14 +2,37 @@
 
 * {border:border-box}
 
-/* 
+body{background: #e6e6e6;
+    margin-top:10%;
+}
 
-    You can write your own styles here...
-    
-    
-    ...Or you can use the import command to include 
-    other sylesheets into your bunde as well, e.j:
-    
-    import 'relative/path/to/stylesheet.scss';
+h1 {font-size: 34px;}
 
-*/
+.papelera {
+    display:none;
+}
+
+.tarea:hover .papelera {display:block}
+
+
+.caja {
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+    box-shadow:  8px 8px 16px #d9d9d9,
+                 -8px -8px 16px #ffffff;
+}
+.boton {
+    padding:10px 15px;
+    border-radius: 10px;
+    background: linear-gradient(145deg, #d05151, #af4444);
+    box-shadow:  8px 8px 16px #d9d9d9,
+             -8px -8px 16px #ffffff;}
+
+.boton:hover {
+    border-radius: 10px;
+    background: #c24c4c;
+    box-shadow: inset 8px 8px 16px #a54141,
+            inset -8px -8px 16px #df5757;}
+
+
+#newTask:focus {border:none!important;}

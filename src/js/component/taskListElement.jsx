@@ -8,13 +8,15 @@ const TaskListElement = ({ task, deleteTask }) => {
 	}
 
 	return (
-		<div className="text-light p-3">
-			<div className="row">
-				<div className="col-10">
+		<div className="p-3 caja my-3">
+			<div className="row tarea pr-2">
+				<div className="col-11">
 					<span>{task}</span>
 				</div>
-				<div className="col-2 text-end">
-					<span onClick={deleteTaskClicked}>
+				<div className="col-1 text-end papelera ">
+					<span
+						className="boton text-light"
+						onClick={deleteTaskClicked}>
 						<i className="far fa-trash-alt"></i>
 					</span>
 				</div>
