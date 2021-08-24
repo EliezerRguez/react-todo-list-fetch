@@ -1,10 +1,22 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
 * {border:border-box}
+html,body{height:100%}
 
-body{background: #e6e6e6;
-    margin-top:10%;
+body {
+   background:linear-gradient(145deg, #15191c, #121517);
+   margin-top: 15%;
 }
+
+/* Glassmorphism card effect */
+.caja {
+    border-radius:30px;
+    background: linear-gradient(145deg, #15191c, #121517);
+    box-shadow:  22px 22px 35px #0d0f11,
+                 -22px -22px 35px #1b1f23;
+}
+
+
 
 h1 {font-size: 34px;}
 
@@ -15,24 +27,25 @@ h1 {font-size: 34px;}
 .tarea:hover .papelera {display:block}
 
 
-.caja {
-    border-radius: 20px;
-    background: linear-gradient(145deg, #ffffff, #e6e6e6);
-    box-shadow:  8px 8px 16px #d9d9d9,
-                 -8px -8px 16px #ffffff;
-}
+.input {
+    border-radius: 10px;
+    background: linear-gradient(90deg, #212325, #121418);
+    box-shadow:  15px 15px 25px #0d0f12,
+             -15px -15px 25px #1b1d24;
+            
+    &:focus-visible{outline:none}        }
+
+
 .boton {
     padding:10px 15px;
     border-radius: 10px;
-    background: linear-gradient(145deg, #d05151, #af4444);
-    box-shadow:  8px 8px 16px #d9d9d9,
-             -8px -8px 16px #ffffff;}
+    background: #740101;
+box-shadow: inset -5px -5px 10px #640101,
+            inset 5px 5px 10px #840101;;
+    }
 
 .boton:hover {
     border-radius: 10px;
-    background: #c24c4c;
-    box-shadow: inset 8px 8px 16px #a54141,
-            inset -8px -8px 16px #df5757;}
-
-
-#newTask:focus {border:none!important;}
+    background: #740101;
+box-shadow: inset 5px 5px 10px #640101,
+            inset -5px -5px 10px #840101;}
