@@ -4,7 +4,10 @@ import TaskListElement from "./taskListElement.jsx";
 
 //create your first component
 const Home = () => {
-	const [list, setList] = useState([]);
+	const [list, setList] = useState([
+		"Dinner at 9pm",
+		"Meeting in Helsinki next week"
+	]);
 	function deleteTask(taskToRemove) {
 		setList(list.filter(task => task !== taskToRemove));
 	}
