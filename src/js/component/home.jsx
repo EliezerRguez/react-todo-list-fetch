@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import TaskList from "./taskList.jsx";
 import TaskListElement from "./taskListElement.jsx";
-import Rigo from "../../img/rigo-baby.jpg";
 
 //create your first component
 const Home = () => {
