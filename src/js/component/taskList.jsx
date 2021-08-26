@@ -28,6 +28,7 @@ const TaskList = ({ list, setList }) => {
 			}
 		}
 	};
+
 	const elementsNumber = list.length;
 	const elementsNumberText = list.length !== 1 ? "tasks left" : "task left";
 

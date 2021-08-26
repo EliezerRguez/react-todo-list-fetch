@@ -26,15 +26,19 @@ h1 {font-size: 34px;}
 
 .tarea:hover .papelera {display:block}
 
+input[type=text]:focus-visible{outline:none}
 
 .input {
     border-radius: 10px;
     background: linear-gradient(90deg, #212325, #121418);
     box-shadow:  15px 15px 25px #0d0f12,
              -15px -15px 25px #1b1d24;
-            
-    &:focus-visible{outline:none}        }
-
+}
+.caja-foto {background: linear-gradient(90deg, #212325, #121418);
+    box-shadow:  15px 15px 25px #0d0f12,
+             -15px -15px 25px #1b1d24;
+             border-radius: 50%;width:90%}
+.foto {border-radius: 50%;width:90%}
 
 .boton {
     padding:10px 15px;

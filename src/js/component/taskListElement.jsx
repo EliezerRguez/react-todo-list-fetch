@@ -1,10 +1,14 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 
 //create your first component
-const TaskListElement = ({ task, deleteTask }) => {
+const TaskListElement = ({ task, deleteTask, modifyTask, index }) => {
 	function deleteTaskClicked() {
 		deleteTask(task);
+	}
+
+	function onTaskChange(event) {
+		modifyTask(event.target.value, index);
 	}
 
 	return (
@@ -12,7 +16,11 @@ const TaskListElement = ({ task, deleteTask }) => {
 			<div className="px-4 py-3 mb-4 input">
 				<div className="row tarea text-light">
 					<div className="col-11 font-weight-bold">
-						<span>{task}</span>
+						<input
+							type="text"
+							value={task}
+							onChange={onTaskChange}
+							className="w-100 border-0 bg-transparent text-light"></input>
 					</div>
 					<div className="col-1 text-end papelera">
 						<span
@@ -29,7 +37,9 @@ const TaskListElement = ({ task, deleteTask }) => {
 
 TaskListElement.propTypes = {
 	task: PropTypes.string,
-	deleteTask: PropTypes.func
+	deleteTask: PropTypes.func,
+	modifyTask: PropTypes.func,
+	index: PropTypes.number
 };
 
 export default TaskListElement;
