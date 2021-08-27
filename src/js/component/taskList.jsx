@@ -21,9 +21,9 @@ const TaskList = ({ list, setList }) => {
 
 	const addNewTask = event => {
 		if (event.keyCode == 13) {
-			let position = list.findIndex(task => task === newTask);
+			let position = list.findIndex(task => task.label === newTask);
 			if (position === -1) {
-				setList([...list, newTask]);
+				setList([...list, { label: newTask, done: false }]);
 				setNewTask("");
 			}
 		}
