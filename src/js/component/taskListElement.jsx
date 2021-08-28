@@ -12,7 +12,7 @@ const TaskListElement = ({ task, deleteTask, modifyTask, index }) => {
 	}
 
 	return (
-		<div className="container px-4">
+		<div className="container">
 			<div className="px-4 py-3 mb-4 input">
 				<div className="row tarea text-light">
 					<div className="col-11 font-weight-bold">

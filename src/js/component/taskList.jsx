@@ -33,7 +33,7 @@ const TaskList = ({ list, setList }) => {
 	const elementsNumberText = list.length !== 1 ? "tasks left" : "task left";
 
 	return (
-		<div className="container px-4 pt-3">
+		<div className="container pt-3">
 			<input
 				type="text"
 				placeholder="What needs to be done?"

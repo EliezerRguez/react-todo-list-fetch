@@ -49,8 +49,12 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		createNewUser();
-		getApiList();
+		if (list.length === 0) {
+			createNewUser();
+			getApiList();
+		} else {
+			getApiList();
+		}
 	}, []);
 
 	async function updateApiList(list) {
@@ -71,7 +75,9 @@ const Home = () => {
 	}
 
 	useEffect(() => {
-		updateApiList(list);
+		if (list.length !== 0) {
+			updateApiList(list);
+		}
 	}, [list]);
 
 	async function deleteList() {
@@ -95,10 +101,6 @@ const Home = () => {
 		setList([]);
 	}
 
-	const fecha = new Date();
-
-	const hoy = fecha.toLocaleDateString();
-
 	function deleteTask(taskToRemove) {
 		let temp = [...list];
 		let filter = temp.filter(task => task.label !== taskToRemove);
@@ -112,10 +114,11 @@ const Home = () => {
 	}
 
 	return (
-		<div className="container caja pb-4">
-			<h1 className="font-weight-bold pt-3 text-light px-4">
-				· TO DO LIST · {hoy}
+		<div className="container caja px-4 pt-3 pb-4">
+			<h1 className="font-weight-bold d-inline-block text-light ml-4 mb-0">
+				· TO DO LIST ·
 			</h1>
+
 			<TaskList list={list} setList={setList} />
 			{list.map((listTask, index) => (
 				<TaskListElement
@@ -126,9 +129,13 @@ const Home = () => {
 					modifyTask={modifyTask}
 				/>
 			))}
-			<button className="" onClick={deleteList}>
-				DELETE ALL
-			</button>
+			<div className="container m-auto">
+				<button
+					className="boton border-0 text-light font-weight-bold text-right mr-3 mb-2"
+					onClick={deleteList}>
+					DELETE ALL
+				</button>
+			</div>
 		</div>
 	);
 };
